@@ -50,6 +50,16 @@ db.run("INSERT INTO hello VALUES (add_js(7, 3), add_js('Hello ', 'world'));"); /
 
 // Export the database to an Uint8Array containing the SQLite database file
 const binaryArray = db.export();
-  };
+
+fetch('pokedex.sql')
+  .then(response => response.text())
+  .then(body => {
+    // Create a database
+    const db = new SQL.Database();
+      db.run(body); // Run the query without returning anything
+      const res = db.exec("SELECT * FROM pokemon WHERE hp>=100");
+      console.log(res)
+  });
+};
 
 my_code();
