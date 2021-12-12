@@ -9,6 +9,7 @@
             href="https://fonts.googleapis.com/css?family=PT+Mono|PT+Sans&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet"  href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"/>
         <style>
             *,
             *::before,
@@ -21,7 +22,18 @@
         </style>
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root">
+            <div>
+                <div>
+                    <label for="query">Run a SQL command:</label>
+                </div>
+                <input id="query" type="text" name="text" size="100" value="SELECT * FROM pokemon WHERE hp>=100">
+                <input id="submit" type="submit" value="Send">
+              </div>
+        </div>
+        <table id="example" class="display" width="100%"></table>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="sql-wasm.js"></script>
         <script type="text/javascript" src="my-js.js"></script>
     </body>
